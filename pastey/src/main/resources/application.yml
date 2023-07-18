@@ -3,7 +3,6 @@ spring:
     driver-class-name: org.postgresql.Driver
     url: ${DATASOURCE_URL}
 
-
   jpa:
     hibernate:
       ddl-auto: update
@@ -14,3 +13,5 @@ spring:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true
         default_schema: public
+server:
+  port: 3000
