@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: ${DATASOURCE_URL}
+    url: jdbc:postgresql://localhost:5432/pastey?user=login&password=123456
 
   jpa:
     hibernate:
@@ -14,4 +14,5 @@ spring:
         format_sql: true
         default_schema: public
 server:
-  port: 5932
+  port: 8080
+
