@@ -15,7 +15,9 @@ public class ClipNote {
     @Column(name = "id", nullable = false )
     private Long id;
 
+    @Column(length = 10000)
     private String text;
+    
     private String date;
     private String username;
     private boolean hidden;
