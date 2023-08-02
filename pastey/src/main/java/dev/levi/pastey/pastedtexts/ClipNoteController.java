@@ -1,6 +1,7 @@
 package dev.levi.pastey.pastedtexts;
 
 import dev.levi.pastey.utils.SimpleResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,8 +20,8 @@ public class ClipNoteController {
     }
 
     @PostMapping("/note")
-    public ClipNote postText(@RequestBody ClipNote clipNote) {
-        return clipNoteRepository.save(clipNote);
+    public ResponseEntity<ClipNote> postText(@RequestBody ClipNote clipNote) {
+        return ResponseEntity.ok(clipNoteRepository.save(clipNote));
     }
     @GetMapping("/note/{id}")
     public ClipNote getText(@PathVariable Long id) {

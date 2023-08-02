@@ -34,10 +34,17 @@ dependencies {
 	annotationProcessor("org.projectlombok:lombok")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0")
-	implementation("org.springdoc:springdoc-openapi-ui:1.7.0")
 
 }
+// COPY CLASSPATH DEPENDENCIES INTO JAR
+tasks.jar {
 
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+	from({
+		configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+	})
+}
 tasks.withType<Test> {
 	useJUnitPlatform()
 }
