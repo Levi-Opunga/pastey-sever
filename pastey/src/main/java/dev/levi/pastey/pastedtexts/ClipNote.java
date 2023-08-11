@@ -17,7 +17,7 @@ public class ClipNote {
 
     @Column(length = 10000)
     private String text;
-    
+    private String title;
     private String date;
     private String username;
     private boolean hidden;
