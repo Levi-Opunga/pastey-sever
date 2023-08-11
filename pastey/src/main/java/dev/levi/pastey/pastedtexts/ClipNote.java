@@ -18,7 +18,7 @@ public class ClipNote {
     @Column(length = 10000)
     private String text;
 
-    @Column(updatable = true)
+    @Column(length = 10000)
     private String title;
     private String date;
     private String username;
