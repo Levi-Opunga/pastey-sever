@@ -35,10 +35,12 @@ public class ClipNoteController {
 
     @PutMapping("/note/{id}")
     public ClipNote updateText(@PathVariable Long id, @RequestBody ClipNote clipNote) {
-        ClipNote clipNoteToUpdate = clipNoteRepository.findById(id).get();
+        ClipNote clipNoteToUpdate = clipNoteRepository.findById(id).orElseThrow();
         clipNoteToUpdate.setText(clipNote.getText());
         clipNoteToUpdate.setDate(clipNote.getDate());
         clipNoteToUpdate.setUsername(clipNote.getUsername());
+        clipNoteToUpdate.setTitle(clipNote.getTitle());
+        clipNoteToUpdate.setHidden(clipNote.isHidden());
         return clipNoteRepository.save(clipNoteToUpdate);
     }
 
